@@ -2,10 +2,9 @@ language: ruby
 rvm:
   - 1.8.7
   - 1.9.3
-  - 2.0.0
 matrix:
   allow_failures:
-    - rvm: 2.0.0
+    - env: TEST_SUITE=spec
 bundler_args: --without development
 # FIXME Get the code to automatically create queue.lock so we don't have to
 #       touch it here or keep it in git
