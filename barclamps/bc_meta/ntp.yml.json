@@ -1,0 +1,27 @@
+{
+  "rpms": {
+    "pkgs": [
+      "ntp"
+    ]
+  },
+  "crowbar": {
+    "order": 50,
+    "chef_order": 50,
+    "run_order": 50,
+    "layout": 2
+  },
+  "id": "ntp",
+  "debs": {
+    "pkgs": [
+      "ntp"
+    ]
+  },
+  "barclamp": {
+    "member": [
+      "crowbar"
+    ],
+    "version": 0,
+    "display": "NTP",
+    "name": "ntp"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "rpms": {
+    "pkgs": [
+      "nagios",
+      "nrpe",
+      "nagios-plugins-all",
+      "nagios-plugins",
+      "nagios-plugins-perl",
+      "nagios-plugins-nrpe",
+      "perl-suidperl"
+    ],
+    "redhat-5.7": {
+      "repos": [
+        "bare epel5-nagios3 10 http://repos.fedorapeople.org/repos/peter/nagios3/epel-5/x86_64/"
+      ]
+    },
+    "redhat-5.6": {
+      "repos": [
+        "bare epel5-nagios3 10 http://repos.fedorapeople.org/repos/peter/nagios3/epel-5/x86_64/"
+      ]
+    }
+  },
+  "crowbar": {
+    "order": 60,
+    "chef_order": 1050,
+    "run_order": 60,
+    "layout": 2
+  },
+  "id": "nagios",
+  "debs": {
+    "ubuntu-11.10": {
+      "pkgs": [
+        "perl-suid"
+      ]
+    },
+    "pkgs": [
+      "nagios-nrpe-server",
+      "nagios-plugins",
+      "nagios-plugins-basic",
+      "nagios-plugins-standard",
+      "libjson-perl",
+      "libmath-calc-units-perl",
+      "libnagios-plugin-perl",
+      "libnagios-object-perl",
+      "libparams-validate-perl",
+      "nagios3",
+      "nagios-nrpe-plugin",
+      "nagios-images"
+    ],
+    "ubuntu-11.04": {
+      "pkgs": [
+        "perl-suid"
+      ]
+    },
+    "ubuntu-10.10": {
+      "pkgs": [
+        "perl-suid"
+      ]
+    }
+  },
+  "barclamp": {
+    "member": [
+      "crowbar"
+    ],
+    "version": 0,
+    "display": "Nagios",
+    "name": "nagios"
+  }
+}

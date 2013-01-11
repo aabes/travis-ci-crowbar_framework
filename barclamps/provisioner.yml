@@ -1,0 +1,121 @@
+# Copyright 2011, Dell
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# Author: RobHirschfeld
+#
+
+barclamp:
+  name: provisioner
+  display: Provisioner
+  description: The roles and recipes to set up the provisioning server and a base environment for all nodes
+  version: 0
+  member:
+    - crowbar
+
+crowbar:
+  layout: 2
+  order: 10
+  run_order: 1060
+  chef_order: 1060
+
+debs:
+  ubuntu-10.10:
+    repos: 
+      - deb http://ppa.launchpad.net/nginx/stable/ubuntu maverick main
+    pkgs:
+      - portmap
+  ubuntu-11.04:
+    repos: 
+      - deb http://ppa.launchpad.net/nginx/stable/ubuntu natty main
+    pkgs:
+      - portmap
+  ubuntu-11.10:
+    repos: 
+      - deb http://ppa.launchpad.net/nginx/stable/ubuntu oneiric main
+    pkgs:
+      - rpcbind
+  ubuntu-12.04:
+    repos: 
+      - deb http://ppa.launchpad.net/nginx/stable/ubuntu oneiric main
+    pkgs:
+      - rpcbind
+  pkgs:
+    - dhcp3-server
+    - nfs-common
+    - nfs-kernel-server
+    - ipmitool
+    - syslinux
+    - tftpd-hpa
+    - nginx-light
+    - polipo
+    - efibootmgr
+  build_pkgs:
+    - build-essential
+    - make
+
+rpms:
+  redhat-5.6:
+    repos:
+      - bare nginx 10 http://nginx.org/packages/rhel/5/x86_64/
+    pkgs:
+      - portmap
+      - OpenIPMI-tools
+  redhat-5.7:
+    repos:
+      - bare nginx 10 http://nginx.org/packages/rhel/5/x86_64/
+    pkgs:
+      - portmap
+      - OpenIPMI-tools
+  centos-5.7:
+    repos:
+      - bare nginx 10 http://nginx.org/packages/rhel/5/x86_64/
+    pkgs:
+      - portmap
+      - OpenIPMI-tools
+  redhat-6.2:
+    repos:
+      - bare nginx 10 http://nginx.org/packages/rhel/6/x86_64/
+    pkgs:
+      - rpcbind
+      - ipmitool
+    build_pkgs:
+      - tar
+  centos-6.2:
+    repos:
+      - bare nginx 10 http://nginx.org/packages/rhel/6/x86_64/
+    pkgs:
+      - rpcbind
+      - ipmitool
+    build_pkgs:
+      - tar
+  pkgs:
+    - dhcp
+    - polipo
+    - dhclient
+    - nfs-utils
+    - syslinux
+    - tftp-server
+    - xinetd
+    - nginx
+    - efibootmgr
+  build_pkgs:
+    - flex
+    - bison
+    - make
+    - kernel-devel
+    - gcc
+    - glibc-devel
+
+extra_files:
+  - http://downloads.sourceforge.net/project/elilo/elilo/elilo-3.14/elilo-3.14-all.tar.gz

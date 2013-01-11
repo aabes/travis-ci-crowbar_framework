@@ -1,0 +1,81 @@
+# Copyright 2012, Dell 
+# 
+# Licensed under the Apache License, Version 2.0 (the "License"); 
+# you may not use this file except in compliance with the License. 
+# You may obtain a copy of the License at 
+# 
+#  http://www.apache.org/licenses/LICENSE-2.0 
+# 
+# Unless required by applicable law or agreed to in writing, software 
+# distributed under the License is distributed on an "AS IS" BASIS, 
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+# See the License for the specific language governing permissions and 
+# limitations under the License. 
+# 
+# Author: RobHirschfeld 
+# 
+
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+
+  # DO NOT ADD BARCLAMP LOCALIZATIONS HERE!!  
+  # they belong in a barclamp subdirectory!
+    
+  # Global
+  show: View
+  all: All
+  destroy: Remove
+  back: Go Back
+  cancel: Cancel
+  edit: Edit
+  actions: Actions
+  are_you_sure: Are you sure?
+  unknown: Unknown
+  error: Error
+  not_set: Not set
+  undetermined: Undetermined
+  na: N/A
+  feature_na: Feature Not Available
+  name: Name
+  down: Down
+  raw: Raw
+  custom: Custom
+  clear_msg: clear
+  created_on: Created On
+  no_items: No Items
+  complete: Complete
+  'yes': 'Yes'
+  'no': 'No'
+  maybe: Maybe
+  chuck_norris: Die!!!
+  updating: Updating...
+  note: Note
+  hint: Hint
+  help: Help
+  virtual: Virtual
+  new: New Item!
+  next: Next
+  prev: Previous
+  export: Export
+  
+  test:
+    verify: "Affirmative"
+  
+  api:
+    wrong_version: "Requested API version (%{version}) is not supported."
+    not_found: "Could not find %{type} with id %{id}."
+    not_supported: "Requested action %{verb} is not supported on %{obj}"
+    deleted: "Successfully deleted %{obj} id %{id}."
+    unknown_request: "Unable to process request"
+    by_id_or_username_record_not_found: "User not found with id/username %{id_username} not found"    
+    
+  db:
+    notunique: "Item must be unique"
+    notuniqueincategory: "Item must be unique in category"
+    lettersnumbers: "Cannot Save: Item can only contain letters (a..z, A..Z), numbers (0..9) and underscore (_)."
+    fqdn: "Item must be a fully qualified domain name (FQDN) such as 'server.example.com'."
+    group_category: "Group Model Validation Error: type is not an allowed category"
+    barclamp_excludes: "Barclamp name is reserved for Crowbar internal operations"
+    not_in_set: "Object %{obj} property %{prop} can only take one of [%{set}]."

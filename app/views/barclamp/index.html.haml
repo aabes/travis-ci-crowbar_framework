@@ -1,0 +1,42 @@
+- if @barclamp.nil?
+  %p{:style => 'float:right'}
+    = t 'all'
+- else
+  %div#logo{:style => 'float:right', :width=>'25%', :border=>0, :visibility=>'hidden'}
+    %img#graphic{:alt=>@title, :width=>'100px'}
+%h1= @title
+
+%table.data.box
+  - if @barclamp.nil?
+    = render :partial => 'barclamp/index'
+  - else
+    = begin render :partial => "barclamp/#{@barclamp.name}/index" rescue (render :partial => 'barclamp/index') end
+
+:javascript
+  function update() {
+    $.ajaxSetup({ timeout: 3000 }) 
+    $.getJSON('#{proposal_status_path}', function(data) {
+      // If role has changed, re-render the page
+      if (data['count'] != #{Proposal.count}) {
+        location.reload();
+      };
+      
+      // Update proposals status
+      $.each(data['proposals'], function(key,val) {
+        led_update($('#'+key), key, val, data['i18n'][key]['proposal'] + ' - ' + data['i18n'][key]['status']);
+        led_update($('#'+key+'_details'), key, val, data['i18n'][key]['status']);
+      });
+
+    });
+  }
+  
+  function led_update(td, key, val, i18n) {
+    if(!td.hasClass(val)){
+      td.destroy();
+      td.attr('class', val+' led');
+      td.attr('title', i18n);
+      td.effect("highlight", {color: '#666666'}, 2000);
+      // remove the button since it does not reflect the state anymore
+      $('#'+key+'_button').attr('hidden', 'true');
+    };  
+  }

@@ -1,0 +1,142 @@
+{
+  "rpms": {
+    "pkgs": [
+      "dhcp",
+      "polipo",
+      "dhclient",
+      "nfs-utils",
+      "syslinux",
+      "tftp-server",
+      "xinetd",
+      "nginx",
+      "efibootmgr"
+    ],
+    "redhat-5.7": {
+      "repos": [
+        "bare nginx 10 http://nginx.org/packages/rhel/5/x86_64/"
+      ],
+      "pkgs": [
+        "portmap",
+        "OpenIPMI-tools"
+      ]
+    },
+    "redhat-5.6": {
+      "repos": [
+        "bare nginx 10 http://nginx.org/packages/rhel/5/x86_64/"
+      ],
+      "pkgs": [
+        "portmap",
+        "OpenIPMI-tools"
+      ]
+    },
+    "centos-6.2": {
+      "repos": [
+        "bare nginx 10 http://nginx.org/packages/rhel/6/x86_64/"
+      ],
+      "pkgs": [
+        "rpcbind",
+        "ipmitool"
+      ],
+      "build_pkgs": [
+        "tar"
+      ]
+    },
+    "redhat-6.2": {
+      "repos": [
+        "bare nginx 10 http://nginx.org/packages/rhel/6/x86_64/"
+      ],
+      "pkgs": [
+        "rpcbind",
+        "ipmitool"
+      ],
+      "build_pkgs": [
+        "tar"
+      ]
+    },
+    "centos-5.7": {
+      "repos": [
+        "bare nginx 10 http://nginx.org/packages/rhel/5/x86_64/"
+      ],
+      "pkgs": [
+        "portmap",
+        "OpenIPMI-tools"
+      ]
+    },
+    "build_pkgs": [
+      "flex",
+      "bison",
+      "make",
+      "kernel-devel",
+      "gcc",
+      "glibc-devel"
+    ]
+  },
+  "crowbar": {
+    "order": 10,
+    "chef_order": 1060,
+    "run_order": 1060,
+    "layout": 2
+  },
+  "id": "provisioner",
+  "extra_files": [
+    "http://downloads.sourceforge.net/project/elilo/elilo/elilo-3.14/elilo-3.14-all.tar.gz"
+  ],
+  "debs": {
+    "ubuntu-11.10": {
+      "repos": [
+        "deb http://ppa.launchpad.net/nginx/stable/ubuntu oneiric main"
+      ],
+      "pkgs": [
+        "rpcbind"
+      ]
+    },
+    "pkgs": [
+      "dhcp3-server",
+      "nfs-common",
+      "nfs-kernel-server",
+      "ipmitool",
+      "syslinux",
+      "tftpd-hpa",
+      "nginx-light",
+      "polipo",
+      "efibootmgr"
+    ],
+    "ubuntu-11.04": {
+      "repos": [
+        "deb http://ppa.launchpad.net/nginx/stable/ubuntu natty main"
+      ],
+      "pkgs": [
+        "portmap"
+      ]
+    },
+    "build_pkgs": [
+      "build-essential",
+      "make"
+    ],
+    "ubuntu-12.04": {
+      "repos": [
+        "deb http://ppa.launchpad.net/nginx/stable/ubuntu oneiric main"
+      ],
+      "pkgs": [
+        "rpcbind"
+      ]
+    },
+    "ubuntu-10.10": {
+      "repos": [
+        "deb http://ppa.launchpad.net/nginx/stable/ubuntu maverick main"
+      ],
+      "pkgs": [
+        "portmap"
+      ]
+    }
+  },
+  "barclamp": {
+    "member": [
+      "crowbar"
+    ],
+    "version": 0,
+    "display": "Provisioner",
+    "description": "The roles and recipes to set up the provisioning server and a base environment for all nodes",
+    "name": "provisioner"
+  }
+}

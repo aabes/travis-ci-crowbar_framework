@@ -1,0 +1,75 @@
+# Copyright 2012, Dell
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+#
+
+barclamp:
+  name: network
+  display: Network
+  version: 0
+  online_help: 'https://github.com/dellcloudedge/crowbar/wiki/Network--barclamp'
+  member:
+    - crowbar
+
+crowbar:
+  layout: 2
+  order: 20
+  run_order: 20
+  chef_order: 20
+
+rpms:
+  redhat-5.6:
+    pkgs:
+      - portmap
+  redhat-5.7:
+    pkgs:
+      - portmap
+  centos-5.7:
+    pkgs:
+      - portmap
+  redhat-6.2:
+    pkgs:
+      - rpcbind
+  centos-6.2:
+    pkgs:
+      - rpcbind
+  pkgs:
+    - bridge-utils
+    - vconfig
+    - dhcp
+    - tftp-server
+    - nfs-utils
+    - iptables
+    - iptables-ipv6
+debs:
+  ubuntu-10.10:
+    pkgs:
+      - portmap
+  ubuntu-11.04:
+    pkgs:
+      - portmap
+  ubuntu-11.10:
+    pkgs:
+      - rpcbind
+  ubuntu-12.04:
+    pkgs:
+      - rpcbind
+  pkgs:
+    - bridge-utils
+    - vlan
+    - ifenslave-2.6
+    - dhcp3-server
+    - tftpd-hpa
+    - nfs-common
+    - nfs-kernel-server

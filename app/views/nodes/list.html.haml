@@ -1,0 +1,83 @@
+%p{:style => 'float:right'}
+  -if params[:allocated].nil?
+    = link_to t('.unallocated'), nodes_list_path(:allocated=>'yes'), :class => 'button'
+    %h1= t('.title_all')
+  -else
+    = link_to t('.all'), nodes_list_path, :class => 'button'
+    %h1= t('.title_unallocated')
+
+- # filter to only show unallocated nodes, with an option to display all
+= form_for :node, :'data-remote' => true, :url => '/nodes/list', :html => { :'data-type' => 'html',  :id => 'update_nodes_list', :class => "formtastic" } do |f|
+  -if !params[:allocated].nil?
+    = hidden_field_tag "allocated", 'yes'
+  %table.data.box
+    %thead
+      %tr
+        %th= t('.name')
+        %th= t('.alias')
+        %th= t('.description')
+        %th= t('.group')
+        %th= t('.bios')
+        %th= t('.raid')
+        %th.center 
+          Allocate? 
+          = check_box_tag 'all', 'all', false, {:onChange=>"check_all()"}
+    %tbody
+      - if @nodes.count > 0
+        - @nodes.sort_by{|handle, n| n.name }.each do |handle, node|
+          %tr.node{ :class => cycle(:odd, :even, :name => "nodes"), :id => node.name }
+            %td= link_to node.name.split('.')[0], node_path(node.name), :title=> node.ip
+            -unless node.admin?
+              %td= text_field_tag "node:#{node.name}:alias".to_sym, "#{node.alias}", :size => 15
+              %td= text_field_tag "node:#{node.name}:description".to_sym, "#{node.description|| ""}", :size => 30
+              - #TODO: there is no 'group', right?!!
+              %td= text_field_tag "node:#{node.name}:group".to_sym, node.group, :size => 15
+              %td
+                -if @options[:show].include? :bios
+                  = select_tag "node:#{node.name}:bios".to_sym, options_for_select(option_default(@options[:bios], node.bios_set, 'bios'), node.bios_set)
+                -else
+                  = t 'feature_na'
+              %td
+                -if @options[:show].include? :raid
+                  = select_tag "node:#{node.name}:raid".to_sym, options_for_select(option_default(@options[:raid], node.raid_set, 'raid'), node.raid_set)
+                -else
+                  = t 'feature_na'
+              %td.center
+                -unless node.allocated
+                  = check_box_tag("node:#{node.name}:allocate".to_sym, 'checked')
+                -else
+                  = t 'complete'
+            -else
+              %td= text_field_tag "node:#{node.name}:alias".to_sym, "#{node.alias || t('.admin')}", :size => 15
+              %td= text_field_tag "node:#{node.name}:description".to_sym, (node.description || ""), :size => 30
+              - #TODO: there is no 'group', right?!!
+              %td= text_field_tag "node:#{node.name}:group".to_sym, node.group, :size => 15
+              %td= t 'na'
+              %td= t 'na'
+              %td.center= t 'na'
+      - else
+        %tr
+          %td{ :colspan=>8 }
+            = t 'no_items'
+    - if @nodes.count > 0
+      %tfoot
+        %tr{ :class => cycle(:odd, :even, :name => "nodes")}
+          %td.hint{:colspan => 6}
+            = t('note')+": "+t('.hint').html_safe
+          %td.action{:colspan => 1}
+            %input.button{:type => "submit", :name => "submit", :value => 'Save'}
+
+.clear
+
+:javascript
+  
+  // if all the prereqs are met (none are visiblie) then check the box
+  // and check to see if that enables/disables other barclamps
+  function check_all() {
+    var checkbox = $('#all');
+    $('input[id^=node]').each ( function(index) {
+      if (/allocate$/.test($(this).attr('id')))
+        $(this).attr('checked', (checkbox.attr('checked') != undefined) );
+    });
+  }
+  
