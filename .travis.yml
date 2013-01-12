@@ -4,7 +4,7 @@ rvm:
   - 1.9.3
 matrix:
   allow_failures:
-    - env: TEST_SUITE=spec
+    - env: TEST_SUITE="spec"
 bundler_args: --without development
 # FIXME Get the code to automatically create queue.lock so we don't have to
 #       touch it here or keep it in git
