@@ -9,6 +9,16 @@
       "iptables",
       "iptables-ipv6"
     ],
+    "centos-6.2": {
+      "pkgs": [
+        "rpcbind"
+      ]
+    },
+    "centos-5.7": {
+      "pkgs": [
+        "portmap"
+      ]
+    },
     "redhat-5.7": {
       "pkgs": [
         "portmap"
@@ -19,35 +29,22 @@
         "portmap"
       ]
     },
-    "centos-6.2": {
-      "pkgs": [
-        "rpcbind"
-      ]
-    },
     "redhat-6.2": {
       "pkgs": [
         "rpcbind"
       ]
-    },
-    "centos-5.7": {
-      "pkgs": [
-        "portmap"
-      ]
     }
   },
-  "crowbar": {
-    "order": 20,
-    "chef_order": 20,
-    "run_order": 20,
-    "layout": 2
+  "barclamp": {
+    "online_help": "https://github.com/dellcloudedge/crowbar/wiki/Network--barclamp",
+    "member": [
+      "crowbar"
+    ],
+    "display": "Network",
+    "name": "network",
+    "version": 0
   },
-  "id": "network",
   "debs": {
-    "ubuntu-11.10": {
-      "pkgs": [
-        "rpcbind"
-      ]
-    },
     "pkgs": [
       "bridge-utils",
       "vlan",
@@ -71,15 +68,18 @@
       "pkgs": [
         "portmap"
       ]
+    },
+    "ubuntu-11.10": {
+      "pkgs": [
+        "rpcbind"
+      ]
     }
   },
-  "barclamp": {
-    "member": [
-      "crowbar"
-    ],
-    "version": 0,
-    "display": "Network",
-    "name": "network",
-    "online_help": "https://github.com/dellcloudedge/crowbar/wiki/Network--barclamp"
+  "id": "network",
+  "crowbar": {
+    "chef_order": 20,
+    "run_order": 20,
+    "order": 20,
+    "layout": 2
   }
 }

@@ -20,19 +20,15 @@
       ]
     }
   },
-  "crowbar": {
-    "order": 60,
-    "chef_order": 1050,
-    "run_order": 60,
-    "layout": 2
+  "barclamp": {
+    "member": [
+      "crowbar"
+    ],
+    "display": "Nagios",
+    "name": "nagios",
+    "version": 0
   },
-  "id": "nagios",
   "debs": {
-    "ubuntu-11.10": {
-      "pkgs": [
-        "perl-suid"
-      ]
-    },
     "pkgs": [
       "nagios-nrpe-server",
       "nagios-plugins",
@@ -56,14 +52,18 @@
       "pkgs": [
         "perl-suid"
       ]
+    },
+    "ubuntu-11.10": {
+      "pkgs": [
+        "perl-suid"
+      ]
     }
   },
-  "barclamp": {
-    "member": [
-      "crowbar"
-    ],
-    "version": 0,
-    "display": "Nagios",
-    "name": "nagios"
+  "id": "nagios",
+  "crowbar": {
+    "chef_order": 1050,
+    "run_order": 60,
+    "order": 60,
+    "layout": 2
   }
 }

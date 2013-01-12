@@ -1,18 +1,18 @@
 {
-  "crowbar": {
-    "order": 99,
-    "chef_order": 99,
-    "run_order": 99,
-    "layout": 2
-  },
-  "id": "test",
   "barclamp": {
     "member": [
       "crowbar"
     ],
-    "version": 0,
     "display": "Test",
-    "description": "Test Barclamp Integrations",
-    "name": "test"
+    "name": "test",
+    "version": 0,
+    "description": "Test Barclamp Integrations"
+  },
+  "id": "test",
+  "crowbar": {
+    "chef_order": 99,
+    "run_order": 99,
+    "order": 99,
+    "layout": 2
   }
 }

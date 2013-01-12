@@ -4,19 +4,19 @@
       "rsyslog"
     ]
   },
-  "crowbar": {
-    "order": 40,
-    "chef_order": 40,
-    "run_order": 40,
-    "layout": 2
-  },
-  "id": "logging",
   "barclamp": {
     "member": [
       "crowbar"
     ],
-    "version": 0,
     "display": "Logging",
-    "name": "logging"
+    "name": "logging",
+    "version": 0
+  },
+  "id": "logging",
+  "crowbar": {
+    "chef_order": 40,
+    "run_order": 40,
+    "order": 40,
+    "layout": 2
   }
 }

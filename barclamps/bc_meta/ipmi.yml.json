@@ -1,5 +1,10 @@
 {
   "rpms": {
+    "centos-6.2": {
+      "pkgs": [
+        "ipmitool"
+      ]
+    },
     "redhat-5.7": {
       "pkgs": [
         "OpenIPMI-tools"
@@ -10,35 +15,30 @@
         "OpenIPMI-tools"
       ]
     },
-    "centos-6.2": {
-      "pkgs": [
-        "ipmitool"
-      ]
-    },
     "redhat-6.2": {
       "pkgs": [
         "ipmitool"
       ]
     }
   },
-  "crowbar": {
-    "order": 16,
-    "chef_order": 16,
-    "run_order": 16,
-    "layout": 2
+  "barclamp": {
+    "member": [
+      "crowbar"
+    ],
+    "display": "IPMI",
+    "name": "ipmi",
+    "version": 0
   },
-  "id": "ipmi",
   "debs": {
     "pkgs": [
       "ipmitool"
     ]
   },
-  "barclamp": {
-    "member": [
-      "crowbar"
-    ],
-    "version": 0,
-    "display": "IPMI",
-    "name": "ipmi"
+  "id": "ipmi",
+  "crowbar": {
+    "chef_order": 16,
+    "run_order": 16,
+    "order": 16,
+    "layout": 2
   }
 }

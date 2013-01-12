@@ -1,7 +1,16 @@
 {
+  "build_cmd": "build.sh",
   "rpms": {
     "pkgs": [
       "tcpdump"
+    ],
+    "build_pkgs": [
+      "flex",
+      "bison",
+      "make",
+      "kernel-devel",
+      "gcc",
+      "glibc-devel"
     ],
     "centos-6.2": {
       "build_pkgs": [
@@ -12,30 +21,15 @@
       "build_pkgs": [
         "tar"
       ]
-    },
-    "build_pkgs": [
-      "flex",
-      "bison",
-      "make",
-      "kernel-devel",
-      "gcc",
-      "glibc-devel"
-    ]
+    }
   },
-  "crowbar": {
-    "order": 10,
-    "chef_order": 10,
-    "run_order": 10,
-    "layout": 2
-  },
-  "id": "deployer",
-  "build_cmd": "build.sh",
-  "gems": {
-    "pkgs": [
-      "xml-simple",
-      "libxml-ruby",
-      "cstruct"
-    ]
+  "barclamp": {
+    "member": [
+      "crowbar"
+    ],
+    "display": "Deployer",
+    "name": "deployer",
+    "version": 0
   },
   "debs": {
     "pkgs": [
@@ -48,12 +42,18 @@
       "bison"
     ]
   },
-  "barclamp": {
-    "member": [
-      "crowbar"
-    ],
-    "version": 0,
-    "display": "Deployer",
-    "name": "deployer"
+  "id": "deployer",
+  "gems": {
+    "pkgs": [
+      "xml-simple",
+      "libxml-ruby",
+      "cstruct"
+    ]
+  },
+  "crowbar": {
+    "chef_order": 10,
+    "run_order": 10,
+    "order": 10,
+    "layout": 2
   }
 }
