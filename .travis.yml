@@ -20,4 +20,4 @@ notifications:
     on_success: change
     on_failure: always
     channels:
-      - irc.freenode.org#crowbar-test
+      - irc.freenode.org#crowbar
