@@ -1,5 +1,32 @@
 {
   "rpms": {
+    "centos-6.2": {
+      "repos": [
+        "rpm http://rbel.frameos.org/rbel6",
+        "rpm http://mirrors.servercentral.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm"
+      ],
+      "build_pkgs": [
+        "libcurl-devel",
+        "yum-plugin-downloadonly",
+        "yum-plugin-priorities",
+        "createrepo",
+        "libxml2-devel",
+        "zlib-devel"
+      ]
+    },
+    "redhat-6.2": {
+      "repos": [
+        "rpm http://rbel.frameos.org/rbel6",
+        "rpm http://mirrors.servercentral.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm"
+      ],
+      "build_pkgs": [
+        "libcurl-devel",
+        "yum-plugin-downloadonly",
+        "createrepo",
+        "libxml2-devel",
+        "zlib-devel"
+      ]
+    },
     "pkgs": [
       "httpd",
       "httpd-devel",
@@ -51,50 +78,23 @@
       "kernel-devel",
       "sqlite-devel",
       "mysql-devel"
-    ],
-    "centos-6.2": {
-      "repos": [
-        "rpm http://rbel.frameos.org/rbel6",
-        "rpm http://mirrors.servercentral.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm"
-      ],
-      "build_pkgs": [
-        "libcurl-devel",
-        "yum-plugin-downloadonly",
-        "yum-plugin-priorities",
-        "createrepo",
-        "libxml2-devel",
-        "zlib-devel"
-      ]
-    },
-    "redhat-6.2": {
-      "repos": [
-        "rpm http://rbel.frameos.org/rbel6",
-        "rpm http://mirrors.servercentral.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm"
-      ],
-      "build_pkgs": [
-        "libcurl-devel",
-        "yum-plugin-downloadonly",
-        "createrepo",
-        "libxml2-devel",
-        "zlib-devel"
-      ]
-    }
+    ]
   },
   "barclamp": {
-    "online_help": "https://github.com/dellcloudedge/crowbar/wiki",
+    "member": [
+      "crowbar"
+    ],
+    "proposal_schema_version": 1,
+    "display": "Crowbar",
+    "name": "crowbar",
     "os_support": [
       "ubuntu-12.04",
       "redhat-6.2",
       "centos-6.2"
     ],
-    "member": [
-      "crowbar"
-    ],
-    "display": "Crowbar",
-    "name": "crowbar",
-    "version": 0,
     "description": "Self-referential barclamp enabling other barclamps",
-    "proposal_schema_version": 1
+    "version": 0,
+    "online_help": "https://crowbar.github.com/"
   },
   "debs": {
     "pkgs": [
@@ -150,15 +150,6 @@
       "vim",
       "libxslt1.1"
     ],
-    "build_pkgs": [
-      "ruby1.9.1-dev",
-      "build-essential",
-      "libsqlite3-dev",
-      "dpkg-dev",
-      "libxml2-dev",
-      "zlib1g-dev",
-      "libxslt1-dev"
-    ],
     "ubuntu-12.04": {
       "repos": [
         "deb http://us.archive.ubuntu.com/ubuntu/ precise main restricted universe multiverse",
@@ -173,7 +164,16 @@
         "deb-src http://security.ubuntu.com/ubuntu precise-security main restricted universe multiverse",
         "deb http://apt.opscode.com/ precise-0.10 main"
       ]
-    }
+    },
+    "build_pkgs": [
+      "ruby1.9.1-dev",
+      "build-essential",
+      "libsqlite3-dev",
+      "dpkg-dev",
+      "libxml2-dev",
+      "zlib1g-dev",
+      "libxslt1-dev"
+    ]
   },
   "id": "crowbar",
   "gems": {
@@ -226,10 +226,10 @@
     ]
   },
   "crowbar": {
-    "chef_order": 0,
     "run_order": 0,
-    "order": 0,
     "proposal_schema_version": 2,
+    "chef_order": 0,
+    "order": 0,
     "layout": 2
   }
 }
