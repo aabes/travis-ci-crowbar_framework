@@ -15,7 +15,8 @@ env:
   - TEST_SUITE="test:units spec"
 script: 'rake db:migrate db:fixtures:dump $TEST_SUITE'
 notifications:
-  email: false
+  email:
+    - crowbar@dell.com
   irc:
     on_success: change
     on_failure: always
