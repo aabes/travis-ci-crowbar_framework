@@ -1,102 +1,52 @@
 {
-  "rpms": {
-    "centos-6.2": {
-      "repos": [
-        "rpm http://rbel.frameos.org/rbel6",
-        "rpm http://mirrors.servercentral.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm"
-      ],
-      "build_pkgs": [
-        "libcurl-devel",
-        "yum-plugin-downloadonly",
-        "yum-plugin-priorities",
-        "createrepo",
-        "libxml2-devel",
-        "zlib-devel"
-      ]
-    },
-    "redhat-6.2": {
-      "repos": [
-        "rpm http://rbel.frameos.org/rbel6",
-        "rpm http://mirrors.servercentral.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm"
-      ],
-      "build_pkgs": [
-        "libcurl-devel",
-        "yum-plugin-downloadonly",
-        "createrepo",
-        "libxml2-devel",
-        "zlib-devel"
-      ]
-    },
-    "pkgs": [
-      "httpd",
-      "httpd-devel",
-      "mod_fcgid",
-      "php",
-      "mod_python",
-      "mod_ssl",
-      "mod_wsgi",
-      "gcc",
-      "gcc-c++",
-      "kernel-devel",
-      "make",
-      "autoconf",
-      "flex",
-      "bison",
-      "patch",
-      "curl",
-      "sqlite",
-      "sqlite-devel",
-      "rubygem-chef-server",
-      "rubygem-kwalify",
-      "createrepo",
-      "minicom",
-      "nscd",
-      "python-markdown",
-      "nss",
-      "nss-tools",
-      "openldap",
-      "openldap-servers",
-      "openldap-clients",
-      "krb5-workstation",
-      "openssh-clients",
-      "openssh-server",
-      "openssh",
-      "rabbitmq-server",
-      "ruby",
-      "ruby-devel",
-      "ruby-shadow",
-      "sudo",
-      "screen",
-      "graphviz",
-      "vim-enhanced"
-    ],
-    "build_pkgs": [
-      "rubygems",
-      "ruby-devel",
-      "make",
-      "gcc",
-      "kernel-devel",
-      "sqlite-devel",
-      "mysql-devel"
-    ]
-  },
   "barclamp": {
     "member": [
       "crowbar"
     ],
-    "proposal_schema_version": 1,
-    "display": "Crowbar",
     "name": "crowbar",
+    "description": "Self-referential barclamp enabling other barclamps",
+    "online_help": "https://crowbar.github.com/",
+    "display": "Crowbar",
     "os_support": [
       "ubuntu-12.04",
       "redhat-6.2",
       "centos-6.2"
     ],
-    "description": "Self-referential barclamp enabling other barclamps",
-    "version": 0,
-    "online_help": "https://crowbar.github.com/"
+    "proposal_schema_version": 1,
+    "version": 0
+  },
+  "crowbar": {
+    "chef_order": 0,
+    "proposal_schema_version": 2,
+    "run_order": 0,
+    "order": 0,
+    "layout": 1.9
   },
   "debs": {
+    "build_pkgs": [
+      "ruby1.9.1-dev",
+      "build-essential",
+      "libsqlite3-dev",
+      "dpkg-dev",
+      "libxml2-dev",
+      "zlib1g-dev",
+      "libxslt1-dev"
+    ],
+    "ubuntu-12.04": {
+      "repos": [
+        "deb http://us.archive.ubuntu.com/ubuntu/ precise main restricted universe multiverse",
+        "deb-src http://us.archive.ubuntu.com/ubuntu/ precise main restricted universe multiverse",
+        "deb http://us.archive.ubuntu.com/ubuntu/ precise-updates main restricted universe multiverse",
+        "deb-src http://us.archive.ubuntu.com/ubuntu/ precise-updates main restricted universe multiverse",
+        "deb http://archive.canonical.com/ubuntu precise partner",
+        "deb-src http://archive.canonical.com/ubuntu precise partner",
+        "deb http://extras.ubuntu.com/ubuntu precise main",
+        "deb-src http://extras.ubuntu.com/ubuntu precise main",
+        "deb http://security.ubuntu.com/ubuntu precise-security main restricted universe multiverse",
+        "deb-src http://security.ubuntu.com/ubuntu precise-security main restricted universe multiverse",
+        "deb http://apt.opscode.com/ precise-0.10 main"
+      ]
+    },
     "pkgs": [
       "apache2",
       "apache2-prefork-dev",
@@ -149,33 +99,89 @@
       "graphviz",
       "vim",
       "libxslt1.1"
-    ],
-    "ubuntu-12.04": {
-      "repos": [
-        "deb http://us.archive.ubuntu.com/ubuntu/ precise main restricted universe multiverse",
-        "deb-src http://us.archive.ubuntu.com/ubuntu/ precise main restricted universe multiverse",
-        "deb http://us.archive.ubuntu.com/ubuntu/ precise-updates main restricted universe multiverse",
-        "deb-src http://us.archive.ubuntu.com/ubuntu/ precise-updates main restricted universe multiverse",
-        "deb http://archive.canonical.com/ubuntu precise partner",
-        "deb-src http://archive.canonical.com/ubuntu precise partner",
-        "deb http://extras.ubuntu.com/ubuntu precise main",
-        "deb-src http://extras.ubuntu.com/ubuntu precise main",
-        "deb http://security.ubuntu.com/ubuntu precise-security main restricted universe multiverse",
-        "deb-src http://security.ubuntu.com/ubuntu precise-security main restricted universe multiverse",
-        "deb http://apt.opscode.com/ precise-0.10 main"
-      ]
-    },
-    "build_pkgs": [
-      "ruby1.9.1-dev",
-      "build-essential",
-      "libsqlite3-dev",
-      "dpkg-dev",
-      "libxml2-dev",
-      "zlib1g-dev",
-      "libxslt1-dev"
     ]
   },
-  "id": "crowbar",
+  "rpms": {
+    "build_pkgs": [
+      "rubygems",
+      "ruby-devel",
+      "make",
+      "gcc",
+      "kernel-devel",
+      "sqlite-devel",
+      "mysql-devel"
+    ],
+    "redhat-6.2": {
+      "repos": [
+        "rpm http://rbel.frameos.org/rbel6",
+        "rpm http://mirrors.servercentral.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm"
+      ],
+      "build_pkgs": [
+        "libcurl-devel",
+        "yum-plugin-downloadonly",
+        "createrepo",
+        "libxml2-devel",
+        "zlib-devel"
+      ]
+    },
+    "centos-6.2": {
+      "repos": [
+        "rpm http://rbel.frameos.org/rbel6",
+        "rpm http://mirrors.servercentral.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm"
+      ],
+      "build_pkgs": [
+        "libcurl-devel",
+        "yum-plugin-downloadonly",
+        "yum-plugin-priorities",
+        "createrepo",
+        "libxml2-devel",
+        "zlib-devel"
+      ]
+    },
+    "pkgs": [
+      "httpd",
+      "httpd-devel",
+      "mod_fcgid",
+      "php",
+      "mod_python",
+      "mod_ssl",
+      "mod_wsgi",
+      "gcc",
+      "gcc-c++",
+      "kernel-devel",
+      "make",
+      "autoconf",
+      "flex",
+      "bison",
+      "patch",
+      "curl",
+      "sqlite",
+      "sqlite-devel",
+      "rubygem-chef-server",
+      "rubygem-kwalify",
+      "createrepo",
+      "minicom",
+      "nscd",
+      "python-markdown",
+      "nss",
+      "nss-tools",
+      "openldap",
+      "openldap-servers",
+      "openldap-clients",
+      "krb5-workstation",
+      "openssh-clients",
+      "openssh-server",
+      "openssh",
+      "rabbitmq-server",
+      "ruby",
+      "ruby-devel",
+      "ruby-shadow",
+      "sudo",
+      "screen",
+      "graphviz",
+      "vim-enhanced"
+    ]
+  },
   "gems": {
     "pkgs": [
       "active_scaffold",
@@ -225,11 +231,5 @@
       "foodcritic"
     ]
   },
-  "crowbar": {
-    "run_order": 0,
-    "proposal_schema_version": 2,
-    "chef_order": 0,
-    "order": 0,
-    "layout": 2
-  }
+  "id": "crowbar"
 }

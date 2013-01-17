@@ -1,86 +1,56 @@
 {
-  "rpms": {
-    "pkgs": [
-      "dhcp",
-      "polipo",
-      "dhclient",
-      "nfs-utils",
-      "syslinux",
-      "tftp-server",
-      "xinetd",
-      "nginx",
-      "efibootmgr"
-    ],
-    "build_pkgs": [
-      "flex",
-      "bison",
-      "make",
-      "kernel-devel",
-      "gcc",
-      "glibc-devel"
-    ],
-    "centos-6.2": {
-      "pkgs": [
-        "rpcbind",
-        "ipmitool"
-      ],
-      "repos": [
-        "bare nginx 10 http://nginx.org/packages/rhel/6/x86_64/"
-      ],
-      "build_pkgs": [
-        "tar"
-      ]
-    },
-    "centos-5.7": {
-      "pkgs": [
-        "portmap",
-        "OpenIPMI-tools"
-      ],
-      "repos": [
-        "bare nginx 10 http://nginx.org/packages/rhel/5/x86_64/"
-      ]
-    },
-    "redhat-5.7": {
-      "pkgs": [
-        "portmap",
-        "OpenIPMI-tools"
-      ],
-      "repos": [
-        "bare nginx 10 http://nginx.org/packages/rhel/5/x86_64/"
-      ]
-    },
-    "redhat-5.6": {
-      "pkgs": [
-        "portmap",
-        "OpenIPMI-tools"
-      ],
-      "repos": [
-        "bare nginx 10 http://nginx.org/packages/rhel/5/x86_64/"
-      ]
-    },
-    "redhat-6.2": {
-      "pkgs": [
-        "rpcbind",
-        "ipmitool"
-      ],
-      "repos": [
-        "bare nginx 10 http://nginx.org/packages/rhel/6/x86_64/"
-      ],
-      "build_pkgs": [
-        "tar"
-      ]
-    }
-  },
   "barclamp": {
     "member": [
       "crowbar"
     ],
-    "display": "Provisioner",
     "name": "provisioner",
-    "version": 0,
-    "description": "The roles and recipes to set up the provisioning server and a base environment for all nodes"
+    "description": "The roles and recipes to set up the provisioning server and a base environment for all nodes",
+    "display": "Provisioner",
+    "version": 0
+  },
+  "crowbar": {
+    "chef_order": 1060,
+    "run_order": 1060,
+    "order": 10,
+    "layout": 1.9
   },
   "debs": {
+    "ubuntu-11.10": {
+      "repos": [
+        "deb http://ppa.launchpad.net/nginx/stable/ubuntu oneiric main"
+      ],
+      "pkgs": [
+        "rpcbind"
+      ]
+    },
+    "build_pkgs": [
+      "build-essential",
+      "make"
+    ],
+    "ubuntu-11.04": {
+      "repos": [
+        "deb http://ppa.launchpad.net/nginx/stable/ubuntu natty main"
+      ],
+      "pkgs": [
+        "portmap"
+      ]
+    },
+    "ubuntu-12.04": {
+      "repos": [
+        "deb http://ppa.launchpad.net/nginx/stable/ubuntu oneiric main"
+      ],
+      "pkgs": [
+        "rpcbind"
+      ]
+    },
+    "ubuntu-10.10": {
+      "repos": [
+        "deb http://ppa.launchpad.net/nginx/stable/ubuntu maverick main"
+      ],
+      "pkgs": [
+        "portmap"
+      ]
+    },
     "pkgs": [
       "dhcp3-server",
       "nfs-common",
@@ -91,52 +61,82 @@
       "nginx-light",
       "polipo",
       "efibootmgr"
-    ],
-    "build_pkgs": [
-      "build-essential",
-      "make"
-    ],
-    "ubuntu-11.04": {
-      "pkgs": [
-        "portmap"
-      ],
-      "repos": [
-        "deb http://ppa.launchpad.net/nginx/stable/ubuntu natty main"
-      ]
-    },
-    "ubuntu-12.04": {
-      "pkgs": [
-        "rpcbind"
-      ],
-      "repos": [
-        "deb http://ppa.launchpad.net/nginx/stable/ubuntu oneiric main"
-      ]
-    },
-    "ubuntu-10.10": {
-      "pkgs": [
-        "portmap"
-      ],
-      "repos": [
-        "deb http://ppa.launchpad.net/nginx/stable/ubuntu maverick main"
-      ]
-    },
-    "ubuntu-11.10": {
-      "pkgs": [
-        "rpcbind"
-      ],
-      "repos": [
-        "deb http://ppa.launchpad.net/nginx/stable/ubuntu oneiric main"
-      ]
-    }
+    ]
   },
-  "id": "provisioner",
+  "rpms": {
+    "build_pkgs": [
+      "flex",
+      "bison",
+      "make",
+      "kernel-devel",
+      "gcc",
+      "glibc-devel"
+    ],
+    "redhat-6.2": {
+      "repos": [
+        "bare nginx 10 http://nginx.org/packages/rhel/6/x86_64/"
+      ],
+      "build_pkgs": [
+        "tar"
+      ],
+      "pkgs": [
+        "rpcbind",
+        "ipmitool"
+      ]
+    },
+    "redhat-5.7": {
+      "repos": [
+        "bare nginx 10 http://nginx.org/packages/rhel/5/x86_64/"
+      ],
+      "pkgs": [
+        "portmap",
+        "OpenIPMI-tools"
+      ]
+    },
+    "redhat-5.6": {
+      "repos": [
+        "bare nginx 10 http://nginx.org/packages/rhel/5/x86_64/"
+      ],
+      "pkgs": [
+        "portmap",
+        "OpenIPMI-tools"
+      ]
+    },
+    "centos-6.2": {
+      "repos": [
+        "bare nginx 10 http://nginx.org/packages/rhel/6/x86_64/"
+      ],
+      "build_pkgs": [
+        "tar"
+      ],
+      "pkgs": [
+        "rpcbind",
+        "ipmitool"
+      ]
+    },
+    "centos-5.7": {
+      "repos": [
+        "bare nginx 10 http://nginx.org/packages/rhel/5/x86_64/"
+      ],
+      "pkgs": [
+        "portmap",
+        "OpenIPMI-tools"
+      ]
+    },
+    "pkgs": [
+      "dhcp",
+      "polipo",
+      "dhclient",
+      "nfs-utils",
+      "syslinux",
+      "tftp-server",
+      "xinetd",
+      "nginx",
+      "efibootmgr"
+    ]
+  },
   "extra_files": [
     "http://downloads.sourceforge.net/project/elilo/elilo/elilo-3.14/elilo-3.14-all.tar.gz"
   ],
-  "crowbar": {
-    "chef_order": 1060,
-    "run_order": 1060,
-    "order": 10,
-    "layout": 2
-  }
+  "id": "provisioner"
 }

@@ -1,21 +1,21 @@
 {
   "barclamp": {
-    "online_help": "https://github.com/dellcloudedge/crowbar/wiki",
     "member": [
       "crowbar"
     ],
-    "display": "Chef deployment management",
     "name": "chef",
-    "version": 0,
     "description": "Provide services to Crowbar to allow deployment with Chef cookbooks",
-    "proposal_schema_version": 1
+    "online_help": "https://github.com/dellcloudedge/crowbar/wiki",
+    "display": "Chef deployment management",
+    "proposal_schema_version": 1,
+    "version": 0
   },
-  "id": "chef",
   "crowbar": {
     "chef_order": 1,
+    "proposal_schema_version": 2,
     "run_order": 1,
     "order": 1,
-    "proposal_schema_version": 2,
-    "layout": 2
-  }
+    "layout": 1.9
+  },
+  "id": "chef"
 }

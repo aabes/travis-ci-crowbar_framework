@@ -1,17 +1,17 @@
 {
-  "rpms": {
-    "pkgs": [
-      "bind",
-      "bind-utils"
-    ]
-  },
   "barclamp": {
     "member": [
       "crowbar"
     ],
-    "display": "DNS",
     "name": "dns",
+    "display": "DNS",
     "version": 0
+  },
+  "crowbar": {
+    "chef_order": 30,
+    "run_order": 30,
+    "order": 30,
+    "layout": 1.9
   },
   "debs": {
     "pkgs": [
@@ -19,11 +19,11 @@
       "bind9utils"
     ]
   },
-  "id": "dns",
-  "crowbar": {
-    "chef_order": 30,
-    "run_order": 30,
-    "order": 30,
-    "layout": 2
-  }
+  "rpms": {
+    "pkgs": [
+      "bind",
+      "bind-utils"
+    ]
+  },
+  "id": "dns"
 }

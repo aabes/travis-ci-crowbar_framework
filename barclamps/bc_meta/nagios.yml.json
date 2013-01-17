@@ -1,34 +1,34 @@
 {
-  "rpms": {
-    "pkgs": [
-      "nagios",
-      "nrpe",
-      "nagios-plugins-all",
-      "nagios-plugins",
-      "nagios-plugins-perl",
-      "nagios-plugins-nrpe",
-      "perl-suidperl"
-    ],
-    "redhat-5.7": {
-      "repos": [
-        "bare epel5-nagios3 10 http://repos.fedorapeople.org/repos/peter/nagios3/epel-5/x86_64/"
-      ]
-    },
-    "redhat-5.6": {
-      "repos": [
-        "bare epel5-nagios3 10 http://repos.fedorapeople.org/repos/peter/nagios3/epel-5/x86_64/"
-      ]
-    }
-  },
   "barclamp": {
     "member": [
       "crowbar"
     ],
-    "display": "Nagios",
     "name": "nagios",
+    "display": "Nagios",
     "version": 0
   },
+  "crowbar": {
+    "chef_order": 1050,
+    "run_order": 60,
+    "order": 60,
+    "layout": 1.9
+  },
   "debs": {
+    "ubuntu-11.10": {
+      "pkgs": [
+        "perl-suid"
+      ]
+    },
+    "ubuntu-11.04": {
+      "pkgs": [
+        "perl-suid"
+      ]
+    },
+    "ubuntu-10.10": {
+      "pkgs": [
+        "perl-suid"
+      ]
+    },
     "pkgs": [
       "nagios-nrpe-server",
       "nagios-plugins",
@@ -42,28 +42,28 @@
       "nagios3",
       "nagios-nrpe-plugin",
       "nagios-images"
-    ],
-    "ubuntu-11.04": {
-      "pkgs": [
-        "perl-suid"
-      ]
-    },
-    "ubuntu-10.10": {
-      "pkgs": [
-        "perl-suid"
-      ]
-    },
-    "ubuntu-11.10": {
-      "pkgs": [
-        "perl-suid"
-      ]
-    }
+    ]
   },
-  "id": "nagios",
-  "crowbar": {
-    "chef_order": 1050,
-    "run_order": 60,
-    "order": 60,
-    "layout": 2
-  }
+  "rpms": {
+    "redhat-5.7": {
+      "repos": [
+        "bare epel5-nagios3 10 http://repos.fedorapeople.org/repos/peter/nagios3/epel-5/x86_64/"
+      ]
+    },
+    "redhat-5.6": {
+      "repos": [
+        "bare epel5-nagios3 10 http://repos.fedorapeople.org/repos/peter/nagios3/epel-5/x86_64/"
+      ]
+    },
+    "pkgs": [
+      "nagios",
+      "nrpe",
+      "nagios-plugins-all",
+      "nagios-plugins",
+      "nagios-plugins-perl",
+      "nagios-plugins-nrpe",
+      "perl-suidperl"
+    ]
+  },
+  "id": "nagios"
 }

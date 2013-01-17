@@ -1,59 +1,25 @@
 {
-  "rpms": {
-    "pkgs": [
-      "bridge-utils",
-      "vconfig",
-      "dhcp",
-      "tftp-server",
-      "nfs-utils",
-      "iptables",
-      "iptables-ipv6"
-    ],
-    "centos-6.2": {
-      "pkgs": [
-        "rpcbind"
-      ]
-    },
-    "centos-5.7": {
-      "pkgs": [
-        "portmap"
-      ]
-    },
-    "redhat-5.7": {
-      "pkgs": [
-        "portmap"
-      ]
-    },
-    "redhat-5.6": {
-      "pkgs": [
-        "portmap"
-      ]
-    },
-    "redhat-6.2": {
-      "pkgs": [
-        "rpcbind"
-      ]
-    }
-  },
   "barclamp": {
-    "online_help": "https://github.com/dellcloudedge/crowbar/wiki/Network--barclamp",
     "member": [
       "crowbar"
     ],
-    "display": "Network",
     "name": "network",
+    "online_help": "https://github.com/dellcloudedge/crowbar/wiki/Network--barclamp",
+    "display": "Network",
     "version": 0
   },
+  "crowbar": {
+    "chef_order": 20,
+    "run_order": 20,
+    "order": 20,
+    "layout": 1.9
+  },
   "debs": {
-    "pkgs": [
-      "bridge-utils",
-      "vlan",
-      "ifenslave-2.6",
-      "dhcp3-server",
-      "tftpd-hpa",
-      "nfs-common",
-      "nfs-kernel-server"
-    ],
+    "ubuntu-11.10": {
+      "pkgs": [
+        "rpcbind"
+      ]
+    },
     "ubuntu-11.04": {
       "pkgs": [
         "portmap"
@@ -69,17 +35,51 @@
         "portmap"
       ]
     },
-    "ubuntu-11.10": {
+    "pkgs": [
+      "bridge-utils",
+      "vlan",
+      "ifenslave-2.6",
+      "dhcp3-server",
+      "tftpd-hpa",
+      "nfs-common",
+      "nfs-kernel-server"
+    ]
+  },
+  "rpms": {
+    "redhat-6.2": {
       "pkgs": [
         "rpcbind"
       ]
-    }
+    },
+    "redhat-5.7": {
+      "pkgs": [
+        "portmap"
+      ]
+    },
+    "redhat-5.6": {
+      "pkgs": [
+        "portmap"
+      ]
+    },
+    "centos-6.2": {
+      "pkgs": [
+        "rpcbind"
+      ]
+    },
+    "centos-5.7": {
+      "pkgs": [
+        "portmap"
+      ]
+    },
+    "pkgs": [
+      "bridge-utils",
+      "vconfig",
+      "dhcp",
+      "tftp-server",
+      "nfs-utils",
+      "iptables",
+      "iptables-ipv6"
+    ]
   },
-  "id": "network",
-  "crowbar": {
-    "chef_order": 20,
-    "run_order": 20,
-    "order": 20,
-    "layout": 2
-  }
+  "id": "network"
 }
