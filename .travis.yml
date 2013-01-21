@@ -13,7 +13,7 @@ env:
   - TEST_SUITE="test:units"
   - TEST_SUITE="spec"
   - TEST_SUITE="test:units spec"
-script: 'rake db:migrate db:fixtures:dump $TEST_SUITE'
+script: 'rake db:drop db:migrate db:fixtures:dump $TEST_SUITE'
 notifications:
   email:
     - crowbar@dell.com
