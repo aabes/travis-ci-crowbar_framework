@@ -8,7 +8,7 @@ matrix:
 bundler_args: --without development
 # FIXME Get the code to automatically create queue.lock so we don't have to
 #       touch it here or keep it in git
-before_script: 'mkdir -p tmp; touch tmp/queue.lock; mkdir -p log'
+before_script: 'mkdir -p tmp; touch tmp/queue.lock; mkdir -p log; bundle show'
 env:
   - TEST_SUITE="test:units"
   - TEST_SUITE="spec"
